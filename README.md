@@ -10,14 +10,14 @@ Developed using marshmallow (for serialization) and requests (for REST API calls
 import fastly
 
 client = fastly.Client('your-api-token')
-
 period = fastly.period(2017, 12, months=1)
 
-bill = client.bill(period)
-
-regions = client.regions(period)
-
-services = client.services()
-
-stats = client.service_stats(period, services[0].id, regions[0])
+try:
+    bill = client.bill(period)
+    regions = client.regions(period)
+    services = client.services()
+    stats = client.service_stats(period, services[0].id, regions[0])
+except fastly.FastlyException:
+    print("An error occurred")
+    raise
 ```
