@@ -11,13 +11,13 @@ import fastly
 
 client = fastly.Client('your-api-token')
 
-month = fastly.month(2017, 12)
+period = fastly.period(2017, 12, months=1)
 
-bill = client.bill(month)
+bill = client.bill(period)
 
-regions = client.regions(month)
+regions = client.regions(period)
 
 services = client.services()
 
-stats = client.service_stats(month, services[0].id, regions[0])
+stats = client.service_stats(period, services[0].id, regions[0])
 ```
