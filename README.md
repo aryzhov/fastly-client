@@ -7,17 +7,17 @@ Developed using marshmallow (for serialization) and requests (for REST API calls
 ## Example
 
 ```python
-from fastly import client
+import fastly
 
-fastly = client.FastlyClient('your-api-token')
+client = fastly.Client('your-api-token')
 
-month = client.month(2017, 12)
+month = fastly.month(2017, 12)
 
-bill = fastly.bill(month)
+bill = client.bill(month)
 
-regions = fastly.regions(month)
+regions = client.regions(month)
 
-services = fastly.services()
+services = client.services()
 
-stats = fastly.service_stats(month, services[0].id, regions[0])
+stats = client.service_stats(month, services[0].id, regions[0])
 ```
