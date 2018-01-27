@@ -1,0 +1,4 @@
+marshmallow==3.0.0b6
+requests==2.18.4
+twine
+wheel

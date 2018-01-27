@@ -1,0 +1,164 @@
+{
+  "customer_id": "dfj343",
+  "end_time": "2017-12-31T00:00:00Z",
+  "start_time": "2017-12-01T00:00:00Z",
+  "invoice_id": 15266,
+  "regions": {
+    "usa": {
+      "cost": 569.33,
+      "bandwidth": {
+        "total": 568.84,
+        "tiers": [
+          {
+            "name": "North America Bandwidth (40,000 gigabytes @ $.064)",
+            "units": 400,
+            "price": 0.064,
+            "discounted_price": 0.064,
+            "total": 2560
+          },
+          {
+            "name": "North America Bandwidth (10,000 gigabytes @ $.096)",
+            "units": 100,
+            "price": 0.096,
+            "discounted_price": 0.096,
+            "total": 960
+          }
+        ]
+      },
+      "requests": {
+        "total": 20.49,
+        "tiers": [
+          {
+            "name": "North America Requests (15.4855 units @ $.006)",
+            "units": 35.4855,
+            "price": 0.006,
+            "discounted_price": 0.006,
+            "total": 20.49
+          }
+        ]
+      }
+    },
+    "australia": {
+      "cost": 36.53000000000003,
+      "bandwidth": {
+        "total": 32.62,
+        "tiers": [
+          {
+            "name": "Australia Bandwidth (235.648634919 gigabytes @ $.152)",
+            "units": 235.648634919,
+            "price": 0.152,
+            "discounted_price": 0.152,
+            "total": 32.62
+          }
+        ]
+      },
+      "requests": {
+        "total": 0.91,
+        "tiers": [
+          {
+            "name": "Australia Requests (16.2257 units @ $.0072)",
+            "units": 16.2257,
+            "price": 0.0072,
+            "discounted_price": 0.0072,
+            "total": 0.91
+          }
+        ]
+      }
+    }
+  },
+  "status": {
+    "status": "Outstanding"
+  },
+  "total": {
+    "cost": 897.79,
+    "requests": 404.2022,
+    "requests_cost": 31.479999999999997,
+    "bandwidth": 123578.363092335,
+    "bandwidth_cost": 831.310000000001,
+    "percentile": 0,
+    "percentile_cost": 0,
+    "commit_shortfall": 0,
+    "discount": 0,
+    "discount_amount": 0,
+    "incurred_cost": 802.79,
+    "overage": 0,
+    "cost_before_discount": 827.79,
+    "extras": [
+      {
+        "name": "Shared TLS Certificate",
+        "recurring": 525,
+        "setup": 0
+      }
+    ],
+    "extras_cost": 525,
+    "bandwidth_units": "GB"
+  },
+  "line_items": [
+    {
+      "id": "3HcCAT1EXmUJkkUN6HdEjA",
+      "aria_invoice_id": "3HcLrD5eKdRMijh1hrk1fA",
+      "line_number": 3,
+      "description": "North America Bandwidth (40,000 gigabytes @ $.064)",
+      "service_no": 11000335,
+      "service_name": "North America Bandwidth",
+      "units": "40000.0",
+      "rate_per_unit": "0.064",
+      "amount": "260.0",
+      "rate_schedule_no": null,
+      "rate_schedule_tier_no": 2,
+      "usage_type_no": 10019400,
+      "usage_type_cd": "North_America_Bandwidth",
+      "plan_no": 286,
+      "plan_name": "CDN",
+      "client_service_id": "North_America_Bandwidth",
+      "credit_coupon_code": null,
+      "created_at": "2018-01-03T00:57:21Z",
+      "updated_at": "2018-01-03T00:57:21Z",
+      "deleted_at": null
+    },
+    {
+      "id": "735irxW9GiR2gp1f5ZAN3Q",
+      "aria_invoice_id": "3HcLrD5eKdRMijh1hrk1fA",
+      "line_number": 7,
+      "description": "Australia Bandwidth (2,385.648634919 gigabytes @ $.152)",
+      "service_no": 11000337,
+      "service_name": "Australia Bandwidth",
+      "units": "2385.648634919",
+      "rate_per_unit": "0.152",
+      "amount": "32.62",
+      "rate_schedule_no": null,
+      "rate_schedule_tier_no": 1,
+      "usage_type_no": 10019402,
+      "usage_type_cd": "Australia_Bandwidth",
+      "plan_no": 286,
+      "plan_name": "CDN",
+      "client_service_id": "Australia_Bandwidth",
+      "credit_coupon_code": null,
+      "created_at": "2018-01-03T00:57:21Z",
+      "updated_at": "2018-01-03T00:57:21Z",
+      "deleted_at": null
+    },
+    {
+      "id": "iTVbA7grBGjtRJPxfbSBdA",
+      "aria_invoice_id": "3HcLrD5eKdRMijh1hrk1fA",
+      "line_number": 10,
+      "description": "North America Requests (3,415.4855 units @ $.006)",
+      "service_no": 11000347,
+      "service_name": "North America Requests",
+      "units": "3415.4855",
+      "rate_per_unit": "0.006",
+      "amount": "20.49",
+      "rate_schedule_no": null,
+      "rate_schedule_tier_no": 1,
+      "usage_type_no": 10019406,
+      "usage_type_cd": "North_America_Requests",
+      "plan_no": 286,
+      "plan_name": "CDN",
+      "client_service_id": "North_America_Requests",
+      "credit_coupon_code": null,
+      "created_at": "2018-01-03T00:57:21Z",
+      "updated_at": "2018-01-03T00:57:21Z",
+      "deleted_at": null
+    }
+  ]
+}
