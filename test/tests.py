@@ -1,5 +1,5 @@
 from unittest import TestCase
-from fastly import schemas
+from fastly_client import schemas
 import json
 
 

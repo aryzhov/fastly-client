@@ -1,4 +1,8 @@
+REPO=testpypi
+
 all:
-        python setup.py sdist
-        python setup.py bdist_wheel
-        twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	rm -rf dist
+	rm -rf build
+	python setup.py sdist
+	python setup.py bdist_wheel
+	twine upload --repository $(REPO) dist/*
