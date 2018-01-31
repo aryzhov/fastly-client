@@ -30,7 +30,7 @@ class Test(TestCase):
         self.assertFalse(errors)
         self.assertTrue(invoice.invoice_id == 15266)
         self.assertTrue(invoice.regions["usa"].bandwidth.total > 50)
-        self.assertTrue(invoice.regions["usa"].requests.total_units() > 0)
+        self.assertTrue(invoice.regions["usa"].requests.total_units > 0)
 
     def testStats(self):
         with open("stats_service_usa.json") as f:
@@ -39,4 +39,6 @@ class Test(TestCase):
 
         self.assertFalse(errors)
         self.assertTrue(stats)
-        self.assertTrue(len(stats.daily_stats) > 0)
+        self.assertTrue(stats.total_bandwidth > 0)
+        self.assertTrue(stats.total_requests > 0)
+        self.assertTrue(stats.days > 0)

@@ -81,6 +81,7 @@ class ServiceStats(mm.Schema):
         service_id = fields.Str()
         start_time = fields.Function(deserialize=lambda n: datetime.datetime.fromtimestamp(n))
         bandwidth = fields.Number()
+        requests = fields.Number()
 
         @mm.post_load
         def create(self, data):

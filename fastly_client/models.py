@@ -35,6 +35,7 @@ class Invoice(object):
                 self.tiers = tiers
                 self.total = total
 
+            @property
             def total_units(self):
                 """
                 :return: The number of Gigabytes if bandwidth or the number of requests
@@ -63,12 +64,25 @@ class Invoice(object):
 class Stats(object):
 
     class DailyStats(object):
-        def __init__(self, service_id, start_time, bandwidth, **kwargs):
+        def __init__(self, service_id, start_time, bandwidth, requests, **kwargs):
             self.service_id = service_id
             self.start_time = start_time
             self.bandwidth = bandwidth
+            self.requests = requests
 
     def __init__(self, daily_stats, region, **kwargs):
         self.daily_stats = daily_stats
         self.region = region
+
+    @property
+    def total_bandwidth(self):
+        return sum([d.bandwidth for d in self.daily_stats])
+
+    @property
+    def total_requests(self):
+        return sum([d.requests for d in self.daily_stats])
+
+    @property
+    def days(self):
+        return len(self.daily_stats)
 
