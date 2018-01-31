@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name="fastly-client",
-    version="0.1.4",
+    version="0.1.5",
     author="Alexander Ryzhov",
     author_email="aryzhov07@gmail.com",
     description=("Fastly API client that supports billing and stats."),

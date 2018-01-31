@@ -30,27 +30,35 @@ class Billing(mm.Schema):
 
     class Region(mm.Schema):
 
-        class Bandwidth(mm.Schema):
-            total = fields.Number()
+        class Details(mm.Schema):
 
-            # ignore "tiers"
+            class Tier(mm.Schema):
+                name = fields.Str()
+                units = fields.Number()
+                price = fields.Number()
+                discounted_price = fields.Number()
+                total = fields.Number()
+
+                @mm.post_load
+                def create(self, data):
+                    return models.Invoice.Region.Details.Tier(**data)
+
+            total = fields.Number()
+            tiers = fields.List(fields.Nested(Tier))
+
+        class Bandwidth(Details):
 
             @mm.post_load
             def create(self, data):
-                return data["total"]
+                return models.Invoice.Region.Bandwidth(**data)
 
-        class Requests(mm.Schema):
-            total = fields.Number()
-
-            # ignore "tiers"
-
+        class Requests(Details):
             @mm.post_load
             def create(self, data):
-                return data["total"]
+                return models.Invoice.Region.Requests(**data)
 
         bandwidth = fields.Nested(Bandwidth)
         requests = fields.Nested(Requests)
-        discount = fields.Number()
         cost = fields.Number()
 
         @mm.post_load

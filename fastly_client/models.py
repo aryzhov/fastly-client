@@ -19,11 +19,39 @@ class Service(object):
 class Invoice(object):
 
     class Region(object):
-        def __init__(self, bandwidth, requests, cost, discount=0, **kwargs):
+
+        class Details(object):
+
+            class Tier(object):
+
+                def __init__(self, name, units, price, discounted_price, total, **kwargs):
+                    self.name = name
+                    self.units = units
+                    self.price = price
+                    self.discounted_price = discounted_price
+                    self.total = total
+
+            def __init__(self, tiers, total, **kwargs):
+                self.tiers = tiers
+                self.total = total
+
+            def total_units(self):
+                """
+                :return: The number of Gigabytes if bandwidth or the number of requests
+                """
+                return sum([t.units for t in self.tiers])
+
+
+        class Bandwidth(Details):
+            pass
+
+        class Requests(Details):
+            pass
+
+        def __init__(self, bandwidth, requests, cost, **kwargs):
             self.bandwidth = bandwidth
             self.requests = requests
             self.cost = cost
-            self.discount = discount
 
     def __init__(self, invoice_id, start_time, end_time, regions, **kwargs):
         self.invoice_id = invoice_id
@@ -41,5 +69,6 @@ class Stats(object):
             self.bandwidth = bandwidth
 
     def __init__(self, daily_stats, region, **kwargs):
-       self.daily_stats = daily_stats
+        self.daily_stats = daily_stats
+        self.region = region
 

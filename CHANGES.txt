@@ -1,0 +1,3 @@
+0.1.5
+- Added "tiers" to requests and bandwidth in billing results
+- Added total_units() to requests and bandwidth objects
