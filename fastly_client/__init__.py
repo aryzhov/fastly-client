@@ -3,7 +3,7 @@ from urllib import parse as urlparse
 from . import schemas
 from . import models
 from datetime import datetime, timezone
-
+from marshmallow import exceptions as mm_exc
 
 def add_months(year, month, months):
     mm = month + months - 1
@@ -50,10 +50,11 @@ class Client(object):
             response.raise_for_status()
         except (requests.HTTPError, requests.exceptions.ConnectionError) as e:
             raise FastlyException(status=response.status_code, message=response.text)
-        result, errors = schema.loads(response.text, many=many)
-        if errors:
-            raise FastlyException(errors=errors)
-        return result
+        try:
+            result = schema.loads(response.text, many=many)
+            return result
+        except mm_exc.ValidationError as ex:
+            raise FastlyException(errors=ex.messages)
 
     def services(self):
         return self._get("service", schema=schemas.Service(), many=True)

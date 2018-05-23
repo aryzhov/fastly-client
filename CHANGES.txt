@@ -4,3 +4,5 @@
 0.1.6
 - Added "requests" to service stats
 - Made total_units a property
+0.1.7
+- Migrated to marshmallow 3.0.0b11

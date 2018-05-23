@@ -14,9 +14,7 @@ class Test(TestCase):
     def testService(self):
         with open("service.json") as f:
             schema = schemas.Service()
-            services, errors = schema.loads(f.read(), many=True)
-
-        self.assertFalse(errors)
+            services = schema.loads(f.read(), many=True)
         self.assertTrue(len(services) > 0)
         service0 = services[0]
         self.assertTrue(service0.id == "61xzpHvsYa8D7RSiXr2m2g")
@@ -25,9 +23,8 @@ class Test(TestCase):
     def testBilling(self):
         with open("billing.json") as f:
             schema = schemas.Billing()
-            invoice, errors = schema.loads(f.read(), many=False)
+            invoice = schema.loads(f.read(), many=False)
 
-        self.assertFalse(errors)
         self.assertTrue(invoice.invoice_id == 15266)
         self.assertTrue(invoice.regions["usa"].bandwidth.total > 50)
         self.assertTrue(invoice.regions["usa"].requests.total_units > 0)
@@ -35,9 +32,8 @@ class Test(TestCase):
     def testStats(self):
         with open("stats_service_usa.json") as f:
             schema = schemas.ServiceStats()
-            stats, errors = schema.loads(f.read(), many=False)
+            stats = schema.loads(f.read(), many=False)
 
-        self.assertFalse(errors)
         self.assertTrue(stats)
         self.assertTrue(stats.total_bandwidth > 0)
         self.assertTrue(stats.total_requests > 0)

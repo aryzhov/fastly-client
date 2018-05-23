@@ -6,7 +6,7 @@ def read(fname):
 
 setup(
     name="fastly-client",
-    version="0.1.6",
+    version="0.1.7",
     author="Alexander Ryzhov",
     author_email="aryzhov07@gmail.com",
     description=("Fastly API client that supports billing and stats."),
@@ -15,7 +15,7 @@ setup(
     url="https://github.com/aryzhov/fastly-client",
     packages=find_packages(exclude=['test']),
     install_requires=[
-        'marshmallow >= 3.0.0b6',
+        'marshmallow >= 3.0.0b11',
         'requests >= 2.18.4'
     ],
     long_description=read('README.rst'),
